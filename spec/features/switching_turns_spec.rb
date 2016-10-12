@@ -1,7 +1,7 @@
 require_relative 'welpers'
 require 'spec_helper'
 
-feature 'Swtiching turns' do
+feature 'Switching turns' do
   context 'seeing whose turn it is' do
     scenario 'at the start of the game' do
       sign_in_and_play
