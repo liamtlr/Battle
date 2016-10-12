@@ -24,9 +24,9 @@ class Battle < Sinatra::Base
 
   get '/aftermath' do
     @new_game = $game
-    @new_game.attack(@new_game.player_2)
+    @new_game.attack(@new_game.opponent)
     @new_game.switch_turns
-    erb(:aftermath)
+    erb(:play)
   end
 
   # start the server if ruby file executed directly

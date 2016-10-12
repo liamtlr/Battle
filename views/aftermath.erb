@@ -1,7 +1,5 @@
 
-<h1> Ow! <%= @new_game.current_turn %> laid the smackdown on <%= @new_game.opponent_of(@new_game.current_turn) %>! </h1>
-
-<h2><%= @new_game.opponent_of(@new_game.current_turn) %>'s turn </h2>
+<h2><%= @new_game.current_turn.name %>'s turn </h2>
 
 <h2><%=@new_game.player_1.name %> HP: <%= @new_game.player_1.health %></h2>
 <h2><%=@new_game.player_2.name %> HP: <%= @new_game.player_2.health %></h2>
