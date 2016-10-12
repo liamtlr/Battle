@@ -10,10 +10,10 @@ describe Game do
 
   describe 'initialization' do
     it 'contains player 1' do
-      expect(subject.player_1.name).to eq dave
+      expect(subject.player_1).to eq dave
     end
     it 'contains player 2' do
-      expect(subject.player_2.name).to eq mittens
+      expect(subject.player_2).to eq mittens
     end
   end
 
