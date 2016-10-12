@@ -1,5 +1,9 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
 
-gem 'sinatra'
-gem 'rspec-sinatra'
-gem 'capybara'
+ruby '2.3.1'
+
+gem "rspec"
+gem "capybara"
+gem "selenium-webdriver"
+gem "rspec-sinatra"
+gem "sinatra"
