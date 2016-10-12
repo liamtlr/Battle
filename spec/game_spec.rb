@@ -23,4 +23,11 @@ describe Game do
       subject.attack(mittens)
     end
   end
+
+  describe '#switch turns' do
+    it 'switched the turn' do
+      subject.switch_turns
+      expect(subject.current_turn).to eq mittens
+    end
+  end
 end

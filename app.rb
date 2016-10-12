@@ -25,6 +25,7 @@ class Battle < Sinatra::Base
   get '/aftermath' do
     @new_game = $game
     @new_game.attack(@new_game.player_2)
+    @new_game.switch_turns
     erb(:aftermath)
   end
 
