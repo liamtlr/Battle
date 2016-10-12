@@ -4,7 +4,7 @@ describe Player do
   let(:name) {double :name}
   subject {described_class.new(name)}
 
-  describe '#return_player' do
+  describe '#initialize' do
     it "returns the player's name" do
       expect(subject.name).to eq name
     end
