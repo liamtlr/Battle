@@ -18,11 +18,5 @@ describe Player do
       expect { dave.reduce_health }.to change { dave.health }.by(-10)
     end
   end
-
-  describe '#attack' do
-    it 'should attack the other player' do
-      expect(mittens).to receive(:reduce_health)
-      dave.attack(mittens)
-    end
-  end
+  
 end
