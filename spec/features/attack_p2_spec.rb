@@ -22,6 +22,7 @@ feature 'attack player 1' do
     click_button 'OK'
     click_button 'ATTACK!'
     expect(page).to have_content ("Larry has attacked Bob")
+    expect(page).to have_content ("Bob HP: 90")
   end
 end
 
