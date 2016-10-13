@@ -2,8 +2,7 @@ require_relative 'player'
 
 class Game
 
-  attr_reader :player_1, :player_2, :current_player, :non_current_player, :end_game
-
+  attr_reader :player_1, :player_2, :current_player, :non_current_player
   def initialize(a , b)
     @player_1 = a
     @player_2 = b
@@ -35,10 +34,13 @@ class Game
   end
 
   def attack(player)
-    player.receive_damage
-    if player.hit_points == 0
-      @end_game = true
-    end
+    player.receive_damage #TODO
+    game_status(player)
   end
 
+  private
+
+  def game_status(player)
+    @end_game = true if player.hit_points == 0
+  end
 end

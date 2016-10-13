@@ -4,6 +4,10 @@ require './lib/game'
 
 class Battle < Sinatra::Base
 
+  before do
+    @game = Game.instance
+  end
+
   get '/' do
     erb :index
   end
@@ -16,27 +20,21 @@ class Battle < Sinatra::Base
   end
 
   get '/play' do
-    @game = Game.instance
     erb :play
   end
 
   get '/attack' do
-    @game = Game.instance
     @game.attack(@game.non_current_player)
-    if @game.end_game
-      redirect '/end_game'
-    end
+    redirect '/end_game' if @game.end_game?
     erb :attack
   end
 
   get '/switch' do
-    @game = Game.instance
     @game.switch_turn
     redirect '/play'
   end
 
   get '/end_game' do
-    @game = Game.instance
     erb :end
   end
 
