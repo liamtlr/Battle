@@ -19,15 +19,18 @@ feature 'attack player 1' do
   scenario 'player 2 attacks player 1' do
     sign_in_and_play
     click_button 'ATTACK!'
+    click_button 'OK'
     click_button 'ATTACK!'
     expect(page).to have_content ("Larry has attacked Bob")
   end
 end
 
 feature 'Switching turns' do
-  scenario 'allows only player 1 to attack' do
+  scenario "switches back to Bob's when both players have attacked" do
+    sign_in_and_play
     sign_in_and_play
     click_button 'ATTACK!'
+    click_button 'OK'
     click_button 'ATTACK!'
     expect(page).to have_content ("Bob's turn")
   end
