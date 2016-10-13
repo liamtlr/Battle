@@ -29,17 +29,29 @@ class Game
   end
 
   def attack(opponent)
+    current_turn.reduce_health if current_turn.poisoned
     opponent.reduce_health
     @game_over = opponent.fubar?
   end
 
   def paralyse(opponent)
+    current_turn.reduce_health if current_turn.poisoned
     opponent.reduce_health
     paralyse_chance
   end
 
   def paralyse_chance
     @double_switch = true if random_chance >= 0.75
+  end
+
+  def poison(opponent)
+    current_turn.reduce_health if current_turn.poisoned
+    opponent.reduce_health
+    poison_chance(opponent)
+  end
+
+  def poison_chance(opponent)
+    opponent.become_poisoned if 1 >= 0.75
   end
 
   def random_chance

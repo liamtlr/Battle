@@ -37,14 +37,23 @@ class Battle < Sinatra::Base
     erb(:aftermath)
   end
 
-    get '/paralyse' do
-      if @new_game.current_turn == @new_game.player_1
-        @new_game.paralyse(@new_game.player_2)
-      else
-        @new_game.paralyse(@new_game.player_1)
-      end
-      erb(:aftermath)
+  get '/paralyse' do
+    if @new_game.current_turn == @new_game.player_1
+      @new_game.paralyse(@new_game.player_2)
+    else
+      @new_game.paralyse(@new_game.player_1)
     end
+    erb(:aftermath)
+  end
+
+  get '/poison' do
+    if @new_game.current_turn == @new_game.player_1
+      @new_game.poison(@new_game.player_2)
+    else
+      @new_game.poison(@new_game.player_1)
+    end
+    erb(:aftermath)
+  end
 
   get '/game_over' do
     erb(:game_over)
