@@ -4,6 +4,14 @@ class Game
 
   attr_reader :player_1, :player_2, :players, :current_turn, :opponent
 
+  def self.instance
+    @game
+  end
+
+  def self.create(player_1, player_2)
+    @game = Game.new(player_1, player_2)
+  end
+
   def initialize(player_1, player_2)
     @players = [player_1, player_2]
     @current_turn = player_1
