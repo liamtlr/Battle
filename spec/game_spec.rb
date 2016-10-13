@@ -24,6 +24,18 @@ describe Game do
     end
   end
 
+  describe '#paralyse' do
+    it 'should attack the other player' do
+      expect(mittens).to receive(:reduce_health)
+      subject.paralyse(mittens)
+    end
+    it 'sets double_switch to true if success' do
+      allow(game).to receive(:random_chance).and_return 1
+      game.paralyse(mittens)
+      expect(game.double_switch).to eq true
+    end
+  end
+
   describe '#switch turns' do
     it 'switched the turn' do
       subject.switch_turns

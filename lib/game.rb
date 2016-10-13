@@ -35,7 +35,15 @@ class Game
 
   def paralyse(opponent)
     opponent.reduce_health
-    @double_switch = true if rand >= 0.25
+    paralyse_chance
+  end
+
+  def paralyse_chance
+    @double_switch = true if random_chance >= 0.75
+  end
+
+  def random_chance
+    rand
   end
 
   def switch_turns
