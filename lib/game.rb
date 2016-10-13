@@ -12,6 +12,14 @@ class Game
     @end_game = false
   end
 
+  def Game.game_create(player_1, player_2)
+    @game = Game.new(player_1, player_2)
+  end
+
+  def self.instance
+    @game
+  end
+
   def switch_turn
     if @current_player == @player_1
       @current_player = @player_2

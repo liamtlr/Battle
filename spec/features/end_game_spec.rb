@@ -8,6 +8,6 @@ feature 'Game ends' do
       click_link 'Switch Turns'
     end
     click_link 'Attack'
-    expect(page).to have_content 'Game Over'
+    expect(page).to have_content 'Lose'
   end
 end
