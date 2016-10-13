@@ -13,4 +13,8 @@ class Player
     @health -= 10
   end
 
+  def fubar?
+    health <= 0
+  end
+
 end

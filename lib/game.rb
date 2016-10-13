@@ -8,6 +8,7 @@ class Game
     @players = [player_1, player_2]
     @current_turn = player_1
     @opponent = player_2
+    @game_over = false
   end
 
   def player_1
@@ -20,6 +21,7 @@ class Game
 
   def attack(opponent)
     opponent.reduce_health
+    game_over?
   end
 
   def switch_turns
@@ -28,6 +30,10 @@ class Game
 
   def opponent_of(the_player)
     @opponent = @players.select{|player| player != the_player}.first
+  end
+
+  def game_over?
+    @game_over = opponent.fubar?
   end
 
 end

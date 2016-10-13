@@ -5,8 +5,8 @@ describe Game do
 
   subject(:game) { described_class.new(dave, mittens) }
 
-  let(:dave) {double (:dave)}
-  let(:mittens) {double (:mittens)}
+  let(:dave) { Player.new('Dave') }
+  let(:mittens) { Player.new('Mittens') }
 
   describe 'initialization' do
     it 'contains player 1' do
@@ -28,6 +28,13 @@ describe Game do
     it 'switched the turn' do
       subject.switch_turns
       expect(subject.current_turn).to eq mittens
+    end
+  end
+
+  describe '#game over' do
+    it "will declare game over as true" do
+      10.times { game.attack(mittens) }
+      expect(game).to be_game_over
     end
   end
 end

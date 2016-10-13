@@ -18,5 +18,11 @@ describe Player do
       expect { dave.reduce_health }.to change { dave.health }.by(-10)
     end
   end
-  
+
+  describe '#fubar?' do
+    it "ends the game when a player is FUBAR" do
+      10.times {dave.reduce_health}
+      expect(dave).to be_fubar
+    end
+  end
 end
