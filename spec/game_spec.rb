@@ -1,18 +1,17 @@
-# require 'player'
+#require 'player'
 require 'game'
 
 
 describe Game do
   subject(:game)  { described_class.new(snuggles, amaal) }
-  let(:snuggles)  { double(:player) }
-  let(:amaal)     { double(:player) }
+  let(:snuggles) { double(:player) }
+  let(:amaal)     { double(:player)  }
 
   describe 'initialize' do
     it 'starts with with player 1' do
       expect(game.current_player).to eq snuggles
     end
   end
-
 
   describe '#switch_turn' do
     it 'changes the current player' do
@@ -39,4 +38,12 @@ describe Game do
       game.attack(amaal)
     end
   end
+
+  context 'player HP reaches zero' do
+    it 'ends the game' do
+      6.times game.attack(Player.new('Amaal'))
+      expect(game).to be_end_game
+    end
+  end
+
 end
