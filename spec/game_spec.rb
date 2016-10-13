@@ -7,6 +7,20 @@ describe Game do
   let(:snuggles)  { double(:player) }
   let(:amaal)     { double(:player) }
 
+  describe 'initialize' do
+    it 'starts with with player 1' do
+      expect(game.current_player).to eq snuggles
+    end
+  end
+
+
+  describe '#switch_turn' do
+    it 'changes the current player' do
+      game.switch_turn
+      expect(game.current_player).to eq amaal
+    end
+  end
+
   describe '#player_1' do
     it 'retrieves the first player' do
       expect(game.player_1).to eq snuggles
