@@ -11,3 +11,10 @@ def laying_the_smackdown
     click_button 'OK'
   end
 end
+
+def sign_in_and_lonely_play
+  visit('/')
+  fill_in :player_1_name, with: "Bob"
+  fill_in :player_2_name, with: ""
+  click_button 'Submit'
+end
