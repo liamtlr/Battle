@@ -1,10 +1,8 @@
 <body style='text-align: center;'>
   <% if @new_game.current_turn == @new_game.player_1 %>
     <h2><%= @new_game.player_1.name%> has attacked <%=@new_game.player_2.name%> </h2>
-    <h2><%= @new_game.player_2.name %>'s turn next</h2>
   <% else %>
     <h2><%= @new_game.player_2.name %> has attacked <%=@new_game.player_1.name%></h2>
-    <h2><%= @new_game.player_1.name %>'s turn next</h2>
   <% end %>
 
   <h2><%=@new_game.player_1.name %> HP: <%= @new_game.player_1.health %></h2>

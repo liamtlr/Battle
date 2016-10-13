@@ -1,6 +1,6 @@
 class Player
 
-  attr_reader :name, :health
+  attr_reader :name, :health, :paralysed
 
   HIT_POINTS = 100
 

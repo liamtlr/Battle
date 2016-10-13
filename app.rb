@@ -37,6 +37,15 @@ class Battle < Sinatra::Base
     erb(:aftermath)
   end
 
+    get '/paralyse' do
+      if @new_game.current_turn == @new_game.player_1
+        @new_game.paralyse(@new_game.player_2)
+      else
+        @new_game.paralyse(@new_game.player_1)
+      end
+      erb(:aftermath)
+    end
+
   get '/game_over' do
     erb(:game_over)
   end
@@ -47,6 +56,10 @@ class Battle < Sinatra::Base
 
   get '/switch_turns' do
     @new_game.switch_turns
+    if @new_game.double_switch
+      @new_game.switch_turns
+    end
+    @new_game.reset_double_switch
     redirect '/play'
   end
 
