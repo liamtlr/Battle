@@ -1,11 +1,29 @@
-<h1><%= @new_game.player_1.name %> vs. <%= @new_game.player_2.name %></h1>
+<body style='text-align: center;'>
+  <h1><%= @new_game.player_1.name %> vs. <%= @new_game.player_2.name %></h1>
 
-<h2><%= @new_game.current_turn.name %>'s turn </h2>
+  <h2><%= @new_game.current_turn.name %>'s turn </h2>
 
-<h2><%=@new_game.player_1.name %> HP: <%= @new_game.player_1.health %></h2>
-<h2><%=@new_game.player_2.name %> HP: <%= @new_game.player_2.health %></h2>
+  <h2><%=@new_game.player_1.name %> HP: <%= @new_game.player_1.health %></h2>
+  <h2><%=@new_game.player_2.name %> HP: <%= @new_game.player_2.health %></h2>
 
 
-<form action="/aftermath">
-  <input type="submit" value="ATTACK!">
-</form>
+  <form action="/aftermath">
+    <input type="submit" value="ATTACK <%=@new_game.opponent.name.upcase%>!">
+  </form>
+
+  <form action="/paralyse">
+    <input type="submit" value="Paralyse <%=@new_game.opponent.name%>!">
+  </form>
+
+  <form action="/poison">
+    <input type="submit" value="Poison <%=@new_game.opponent.name%>!">
+  </form>
+
+  <form action="/sleep">
+    <input type="submit" value="Sleep <%=@new_game.opponent.name%>!">
+  </form>
+
+  <form action="/heal">
+    <input type="submit" value="Heal <%=@new_game.current_turn.name%>!">
+  </form>
+</body>

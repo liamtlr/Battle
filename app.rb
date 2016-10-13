@@ -21,7 +21,7 @@ class Battle < Sinatra::Base
   end
 
   get '/play' do
-    if @new_game.current_turn.name == :the_Computer
+    if @new_game.current_turn.name == :the_computer
       redirect '/aftermath'
     else
       erb(:play)
