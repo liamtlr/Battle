@@ -1,4 +1,4 @@
-#require 'player'
+require 'player'
 require 'game'
 
 
@@ -34,6 +34,7 @@ describe Game do
 
   describe '#attack' do
     it 'damages the player' do
+      allow(amaal).to receive(:hit_points)
       expect(amaal).to receive(:receive_damage)
       game.attack(amaal)
     end
@@ -41,8 +42,10 @@ describe Game do
 
   context 'player HP reaches zero' do
     it 'ends the game' do
-      6.times game.attack(Player.new('Amaal'))
-      expect(game).to be_end_game
+      test_player = Player.new('Amaal')
+      current_game = Game.new(test_player, snuggles)#TODO
+      6.times {current_game.attack(test_player)}
+      expect(current_game.end_game?).to eq(true)
     end
   end
 

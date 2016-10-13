@@ -2,7 +2,7 @@ require_relative 'player'
 
 class Game
 
-  attr_reader :player_1, :player_2, :current_player, :non_current_player
+  attr_reader :player_1, :player_2, :current_player, :non_current_player, :end_game
 
   def initialize(a , b)
     @player_1 = a
@@ -23,7 +23,7 @@ class Game
   end
 
   def end_game?
-    @end_game.dup
+    @end_game
   end
 
   def attack(player)

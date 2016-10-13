@@ -10,3 +10,8 @@ def attack_and_switch
   click_link 'Attack'
   click_link 'Switch Turns'
 end
+
+def switch
+  click_link 'Attack'
+  click_link 'Switch Turns'
+end
