@@ -1,0 +1,9 @@
+<% if @new_game.player_1.fubar? %>
+<h1><%= @new_game.player_1.name%> is FUBAR :(</h1>
+<% else %>
+<h1><%= @new_game.player_2.name%> is FUBAR :(</h1>
+<% end %>
+
+<form action="/">
+  <input type="submit" value="Play again">
+</form

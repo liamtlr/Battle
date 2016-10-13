@@ -21,7 +21,7 @@ class Game
 
   def attack(opponent)
     opponent.reduce_health
-    game_over?
+    @game_over = opponent.fubar?
   end
 
   def switch_turns
@@ -33,7 +33,7 @@ class Game
   end
 
   def game_over?
-    @game_over = opponent.fubar?
+    @game_over
   end
 
 end

@@ -8,6 +8,6 @@
 <h2><%=@new_game.player_1.name %> HP: <%= @new_game.player_1.health %></h2>
 <h2><%=@new_game.player_2.name %> HP: <%= @new_game.player_2.health %></h2>
 
-<form action="/switch_turns" method="post">
+<form action="/game_status" method="post">
   <input type="submit" value="OK">
 </form
