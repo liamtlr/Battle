@@ -7,7 +7,7 @@ end
 
 def laying_the_smackdown
   19.times do
-    click_button 'ATTACK!'
+    click_button "ATTACK!"
     click_button 'OK'
   end
 end

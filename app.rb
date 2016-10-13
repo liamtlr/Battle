@@ -28,7 +28,7 @@ class Battle < Sinatra::Base
     end
   end
 
-  get '/aftermath' do
+  get '/attack' do
     if @new_game.current_turn == @new_game.player_1
       @new_game.attack(@new_game.player_2)
     else

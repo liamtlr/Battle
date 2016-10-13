@@ -7,23 +7,23 @@
   <h2><%=@new_game.player_2.name %> HP: <%= @new_game.player_2.health %></h2>
 
 
-  <form action="/aftermath">
-    <input type="submit" value="ATTACK <%=@new_game.opponent.name.upcase%>!">
+  <form action="/attack">
+    <input type="submit" value="ATTACK!">
   </form>
 
   <form action="/paralyse">
-    <input type="submit" value="Paralyse <%=@new_game.opponent.name%>!">
+    <input type="submit" value="Paralyse!">
   </form>
 
   <form action="/poison">
-    <input type="submit" value="Poison <%=@new_game.opponent.name%>!">
+    <input type="submit" value="Poison!">
   </form>
 
   <form action="/sleep">
-    <input type="submit" value="Sleep <%=@new_game.opponent.name%>!">
+    <input type="submit" value="Sleep!">
   </form>
 
   <form action="/heal">
-    <input type="submit" value="Heal <%=@new_game.current_turn.name%>!">
+    <input type="submit" value="Heal!">
   </form>
 </body>
