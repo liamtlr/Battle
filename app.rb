@@ -13,7 +13,7 @@ class Battle < Sinatra::Base
   end
 
   post '/names' do
-    player_2_name = params[:player_2_name].empty? ? "the Computer" : params[:player_2_name]
+    player_2_name = params[:player_2_name].empty? ? :the_computer : params[:player_2_name]
     player_1 = Player.new(params[:player_1_name])
     player_2 = Player.new(player_2_name)
     Game.create(player_1, player_2)
@@ -21,7 +21,11 @@ class Battle < Sinatra::Base
   end
 
   get '/play' do
-    erb(:play)
+    if @new_game.current_turn.name == :the_Computer
+      redirect '/aftermath'
+    else
+      erb(:play)
+    end
   end
 
   get '/aftermath' do
