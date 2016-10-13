@@ -10,7 +10,11 @@ class Player
   end
 
   def reduce_health
-    @health -= 10
+    @health -= random_damage
+  end
+
+  def random_damage
+    rand(1..25)
   end
 
   def fubar?

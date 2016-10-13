@@ -39,9 +39,8 @@ class Game
   def opponent_of(the_player)
     @opponent = @players.select{|player| player != the_player}.first
   end
-
+  
   def game_over?
     @game_over
   end
-
 end

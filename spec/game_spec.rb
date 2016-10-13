@@ -33,6 +33,7 @@ describe Game do
 
   describe '#game over' do
     it "will declare game over as true" do
+      allow(mittens).to receive(:random_damage).and_return(10)
       10.times { game.attack(mittens) }
       expect(game).to be_game_over
     end

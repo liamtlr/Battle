@@ -15,12 +15,18 @@ describe Player do
 
   describe '#reduce_health' do
     it 'should reduce health by 10' do
+      allow(dave).to receive(:random_damage).and_return(10)
       expect { dave.reduce_health }.to change { dave.health }.by(-10)
+    end
+
+    it "should output random damage between 1 and 25" do
+      expect(1..25).to include(dave.random_damage)
     end
   end
 
   describe '#fubar?' do
     it "ends the game when a player is FUBAR" do
+      allow(dave).to receive(:random_damage).and_return(10)
       10.times {dave.reduce_health}
       expect(dave).to be_fubar
     end
