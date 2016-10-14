@@ -41,6 +41,6 @@ class Game
   private
 
   def game_status(player)
-    @end_game = true if player.hit_points == 0
+    @end_game = true if player.hit_points <= 0
   end
 end

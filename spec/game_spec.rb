@@ -34,8 +34,7 @@ describe Game do
 
   describe '#attack' do
     it 'damages the player' do
-
-      allow(amaal).to receive(:hit_points)
+      amaal = Player.new('Amaal')
       expect(amaal).to receive(:receive_damage)
       game.attack(amaal)
     end
