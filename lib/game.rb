@@ -49,6 +49,10 @@ class Game
     @double_switch = true if random_chance
   end
 
+  def heal
+    @current_player.heal_me
+  end
+
   def reset_turn
     @double_switch = false
   end

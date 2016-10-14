@@ -13,6 +13,11 @@ class Player
     @hit_points -= random_damage
   end
 
+  def heal_me
+    @hit_points += random_damage
+    @poisoned = false
+  end
+
   def poison
     @poisoned = true
   end

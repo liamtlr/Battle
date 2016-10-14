@@ -45,6 +45,11 @@ class Battle < Sinatra::Base
     erb :attack
   end
 
+  get '/heal' do
+    @game.heal
+    erb :attack
+  end
+
   get '/switch' do
     @game.switch_turn if @game.double_switch == true
     @game.switch_turn
