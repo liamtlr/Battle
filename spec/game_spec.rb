@@ -44,7 +44,9 @@ describe Game do
     it 'ends the game' do
       test_player = Player.new('Amaal')
       current_game = Game.new(test_player, snuggles)
+      allow(current_game.non_current_player).to receive(:random_damage).and_return(10)
       6.times {current_game.attack(test_player)}
+      puts test_player.hit_points
       expect(current_game.end_game?).to eq(true)
     end
   end

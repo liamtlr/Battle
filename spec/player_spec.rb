@@ -22,5 +22,9 @@ describe Player do
       expect{ amaal.receive_damage }.to change{ amaal.hit_points }.by(-10)
     end
 
+    it 'reduces player\'s HP by a random amount' do
+      allow(amaal).to receive(:random_damage).and_return(15)
+      expect{ amaal.receive_damage }.to change{ amaal.hit_points }.by(-15)
+    end
   end
 end
