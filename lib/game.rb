@@ -49,6 +49,11 @@ class Game
     @double_switch = true if random_chance
   end
 
+  def sleep(player)
+    @current_player.poison_damage if @current_player.poisoned
+    @double_switch = true
+  end
+
   def heal
     @current_player.heal_me
   end

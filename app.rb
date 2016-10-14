@@ -40,6 +40,11 @@ class Battle < Sinatra::Base
     erb :attack
   end
 
+  get '/sleep' do
+    @game.sleep(@game.non_current_player)
+    erb :attack
+  end
+
   get '/poison' do
     @game.poison_player(@game.non_current_player)
     erb :attack
