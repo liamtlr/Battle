@@ -1,4 +1,6 @@
+<body style="background-color:purple;">
 <h1> <%= @game.current_player.name %> attacked <%= @game.non_current_player.name %> </h1>
+<h2><%= @game.non_current_player.name%> up next</h2>
 
 <%= @game.player_1.name %>: <%= @game.player_1.hit_points %>HP
 <%= @game.player_2.name %>: <%= @game.player_2.hit_points %>HP
@@ -6,3 +8,4 @@
 <!-- <a href="/play">Switch Turns</a> -->
 
 <a href="/switch">Switch Turns</a>
+</body>
