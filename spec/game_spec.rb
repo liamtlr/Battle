@@ -43,7 +43,7 @@ describe Game do
   context 'player HP reaches zero' do
     it 'ends the game' do
       test_player = Player.new('Amaal')
-      current_game = Game.new(test_player, snuggles)#TODO
+      current_game = Game.new(test_player, snuggles)
       6.times {current_game.attack(test_player)}
       expect(current_game.end_game?).to eq(true)
     end
