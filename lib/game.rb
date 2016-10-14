@@ -35,12 +35,22 @@ class Game
   end
 
   def attack(player)
-    player.receive_damage #TODO
+    @current_player.poison_damage if @current_player.poisoned
+    player.receive_damage
     game_status(player)
   end
 
+  def poison_player(player)
+    player.poison
+  end
+
   def paralyse(player)
+    @current_player.poison_damage if @current_player.poisoned
     @double_switch = true if random_chance
+  end
+
+  def reset_turn
+    @double_switch = false
   end
 
   private
@@ -50,6 +60,7 @@ class Game
   end
 
   def random_chance
-    rand >= 0.01
+    rand >= 0.75
   end
+
 end

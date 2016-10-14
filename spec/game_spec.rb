@@ -35,6 +35,7 @@ describe Game do
   describe '#attack' do
     it 'damages the player' do
       amaal = Player.new('Amaal')
+      allow(snuggles).to receive(:poisoned)
       expect(amaal).to receive(:receive_damage)
       game.attack(amaal)
     end
@@ -42,6 +43,7 @@ describe Game do
 
   describe '#paralyse' do
     it 'the opponents loses ther turn if successful' do
+      allow(snuggles).to receive(:poisoned)
       allow(game).to receive(:random_chance).and_return(true)
       game.paralyse(amaal)
       expect(game.current_player).to eq snuggles
@@ -52,9 +54,8 @@ describe Game do
     it 'ends the game' do
       test_player = Player.new('Amaal')
       current_game = Game.new(test_player, snuggles)
-      allow(test_player).to receive(:random_damage).and_return(10)
+      allow(snuggles).to receive(:random_damage).and_return(10)
       6.times {current_game.attack(test_player)}
-      puts test_player.hit_points
       expect(current_game.end_game?).to eq(true)
     end
   end
