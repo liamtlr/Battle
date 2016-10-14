@@ -2,13 +2,14 @@ require_relative 'player'
 
 class Game
 
-  attr_reader :player_1, :player_2, :current_player, :non_current_player
+  attr_reader :player_1, :player_2, :current_player, :non_current_player, :double_switch
   def initialize(a , b)
     @player_1 = a
     @player_2 = b
     @current_player = a
     @non_current_player = b
     @end_game = false
+    @double_switch = false
   end
 
   def Game.game_create(player_1, player_2)
@@ -38,9 +39,17 @@ class Game
     game_status(player)
   end
 
+  def paralyse(player)
+    @double_switch = true if random_chance
+  end
+
   private
 
   def game_status(player)
     @end_game = true if player.hit_points <= 0
+  end
+
+  def random_chance
+    rand >= 0.01
   end
 end

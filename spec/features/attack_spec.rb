@@ -13,4 +13,8 @@ feature 'Attacking' do
     expect(page).not_to have_content 'Amaal: 60HP'
     expect(page).to have_content 'Amaal: 50HP'
   end
+  scenario 'player can select from multiple types of attack' do
+    sign_in_and_play
+    expect(page).to have_content 'Paralyse'
+  end
 end

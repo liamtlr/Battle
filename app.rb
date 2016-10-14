@@ -35,7 +35,14 @@ class Battle < Sinatra::Base
     erb :attack
   end
 
+  get '/paralyse' do
+    @game.paralyse(@game.non_current_player)
+    redirect '/end_game' if @game.end_game?
+    erb :attack
+  end
+
   get '/switch' do
+    @game.switch_turn if @game.double_switch == true
     @game.switch_turn
     redirect '/play'
   end

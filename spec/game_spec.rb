@@ -40,6 +40,14 @@ describe Game do
     end
   end
 
+  describe '#paralyse' do
+    it 'the opponents loses ther turn if successful' do
+      allow(game).to receive(:random_chance).and_return(true)
+      game.paralyse(amaal)
+      expect(game.current_player).to eq snuggles
+    end
+  end
+
   context 'player HP reaches zero' do
     it 'ends the game' do
       test_player = Player.new('Amaal')
