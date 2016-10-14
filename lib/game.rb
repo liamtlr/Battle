@@ -15,7 +15,7 @@ class Game
     @game = Game.new(player_1, player_2)
   end
 
-  def self.instance
+  def Game.instance
     @game
   end
 
