@@ -19,6 +19,7 @@ describe Player do
 
   describe '#receive_damage' do
     it 'returns player\'s reduced hit points'do
+      allow(amaal).to receive(:random_damage).and_return(10)
       expect{ amaal.receive_damage }.to change{ amaal.hit_points }.by(-10)
     end
 
